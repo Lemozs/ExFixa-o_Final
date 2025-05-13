@@ -9,10 +9,10 @@ public class Bank {
     public Bank() {
     }
 
-    public Bank(int account, String name, double balance) {
+    public Bank(int account, String name, double initialDeposit) {
         this.account = account;
         this.name = name;
-        this.balance = balance;
+        deposit(initialDeposit);
     }
 
     public Bank(int account, String name) {
@@ -22,10 +22,6 @@ public class Bank {
 
     public int getAccount() {
         return account;
-    }
-
-    public void setAccount(int account) {
-        this.account = account;
     }
 
     public String getName() {
@@ -40,21 +36,17 @@ public class Bank {
         return balance;
     }
 
-    public void setBalance(double balance) {
-        this.balance = balance;
-    }
-
     public void deposit(double amount) {
         balance += amount;
     }
 
-    public void withdrawal(double amount) {
-        balance -= amount;
+    public void withdraw(double amount) {
+        balance -= (amount + 5.0);
     }
 
 	@Override
 	public String toString() {
-		return "Bank account:" + account + ", Name Account:" + name + ", Balance: $" + balance;
+		return "Account: " + account + ", Holder: " + name + ", Balance: $" + balance;
 	}
     
 }
